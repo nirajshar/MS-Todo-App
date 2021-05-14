@@ -1,0 +1,1 @@
+{"version":3,"file":"rolesMapper.dto.js","sourceRoot":"","sources":["../../../src/roles/shared/rolesMapper.dto.ts"],"names":[],"mappings":";;;AAMO,MAAM,UAAU,GAAG,CAAC,IAAiB,EAAY,EAAE;IACtD,MAAM,EAAE,EAAE,EAAE,IAAI,EAAE,SAAS,EAAE,GAAG,IAAI,CAAC;IACrC,IAAI,QAAQ,GAAa,EAAE,EAAE,EAAE,IAAI,EAAE,SAAS,EAAE,CAAC;IACjD,OAAO,QAAQ,CAAC;AACpB,CAAC,CAAC;AAJW,QAAA,UAAU,cAIrB"}
