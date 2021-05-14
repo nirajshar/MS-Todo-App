@@ -11,16 +11,17 @@ User microservice for user having
 ## Rest endpoints (JSON)
 
 1 : User 
+
     - [ POST ] Create User (secure sign up from Super-Admin)
     - [ GET ] Get All Users
     - [ GET ] Get User by User UUID (with Relation Role, Permission assigned)
     - [ PUT ] Update User Details by User UUID
     - [ DELETE ] Delete User by User UUID
-
     - [ POST ] Sign In (JWT / OAuth)
     - [ POST ] Sign Out (JWT / OAuth)
 
   2 : Role (Roles Model)
+
     - [ POST ] Create Role
     - [ GET ] Get All Roles
     - [ GET ] Get Role by Role UUID
@@ -28,6 +29,7 @@ User microservice for user having
     - [ DELETE ] Delete Role by Role UUID
       
   3 : Permission (Permissions Model)
+    
     - [ POST ] Create Permission
     - [ GET ] Get All Permissions
     - [ GET ] Get Permission by Permission UUID
@@ -35,12 +37,14 @@ User microservice for user having
     - [ DELETE ] Delete Permission by Permission UUID
 
   4 : Access Control
+    
     - [ POST ] Assign a Role to User (Only One Role for a ID)
     - [ POST ] Revoke a Role from User 
     - [ POST ] Assign Permissions to Role (Multiple Permissions to a Role)
     - [ POST ] Revoke Permissions from Role (Multiple Permissions from a Role)
 
   5 : Miscellaneous
+    
     - [ GET ] Health Check (Auth Token Validation for Health Response)
     - [ POST ] Heart Beat (To Service Discovery Module)
 
