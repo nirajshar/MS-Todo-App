@@ -5,7 +5,7 @@ import { RegistrationStatus } from './interface/RegistrationStatus.interface';
 import { UserLoginDto } from 'src/user/dto/userLogin.dto';
 import { LoginStatus } from './interface/LoginStatus.interface';
 import { JwtPayload } from './interface/jwt-payload.interface';
-import { ApiResponse, ApiTags } from '@nestjs/swagger';
+import { ApiBearerAuth, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { JwtAuthGuard } from './guards/jwt-guard';
 import { AuthGuard } from '@nestjs/passport';
 import { RolesGuard } from './guards/roles.guard';
@@ -45,10 +45,20 @@ export class AuthController {
 
     @ApiResponse({ status: 200, description: 'User details' })
     @ApiResponse({ status: 401, description: 'Unauthorized' })
+    @ApiBearerAuth()
     @Get('whoami')
     @UseGuards(JwtAuthGuard, RolesGuard)
     public async testAuth(@Req() req: any): Promise<object> {
         return await this.authService.getUserDetails(req);
+    }
+
+    @ApiResponse({ status: 200, description: 'Get Auth User details' })
+    @ApiResponse({ status: 401, description: 'Unauthorized' })
+    @ApiBearerAuth()
+    @Get('get-user')
+    @UseGuards(JwtAuthGuard, RolesGuard)
+    public async getAuthUser(@Req() req: any): Promise<object> {
+        return await this.authService.getAuthUser(req);
     }
 
 }

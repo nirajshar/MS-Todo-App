@@ -5,7 +5,6 @@ import { RolesCreateDto } from './dto/rolesCreate.dto';
 import { RolesUpdateDto } from './dto/rolesUpdate.dto';
 import { RolesService } from './roles.service';
 
-@ApiTags('Roles')
 @Controller('roles')
 export class RolesController {
 
@@ -14,6 +13,7 @@ export class RolesController {
     ) { }
 
     // Get all Roles
+    @ApiTags('Roles')
     @ApiResponse({ status: 200, description: 'Get all Roles in Array of Object' })
     @Get()
     async findAll() {
@@ -21,6 +21,7 @@ export class RolesController {
     }
 
     // Get Role by ID
+    @ApiTags('Roles')
     @ApiResponse({ status: 200, description: 'Get Role details by ID' })
     @ApiResponse({ status: 404, description: 'Role not found' })
     @Get(':id')
@@ -29,6 +30,7 @@ export class RolesController {
     }
 
     // Create One Role 
+    @ApiTags('Roles')
     @ApiResponse({ status: 201, description: 'Role created successfully' })
     @ApiResponse({ status: 409, description: 'Role already exist' })
     @Post()
@@ -38,6 +40,7 @@ export class RolesController {
 
 
     // Update Role by ID
+    @ApiTags('Roles')
     @ApiResponse({ status: 204, description: 'Role updated successfully' })
     @ApiResponse({ status: 404, description: 'Role not found' })
     @Put(':id')
@@ -46,6 +49,7 @@ export class RolesController {
     }
 
     // Delete One Role by ID
+    @ApiTags('Roles')
     @ApiResponse({ status: 200, description: 'Role deleted successfully' })
     @ApiResponse({ status: 404, description: 'Role not found' })
     @Delete(':id')
@@ -55,6 +59,7 @@ export class RolesController {
 
     // ## ACL
     // Grant permission to Role
+    @ApiTags('ACL')
     @ApiOperation({ summary: 'Grant Permissions to Role' })  
     @ApiBody({ type:[GrantRevokeDto]})  
     @ApiResponse({ status: 201, description: 'Permissions granted to Role successfully'})
@@ -65,6 +70,7 @@ export class RolesController {
     }
 
     // Revoke permission from Role
+    @ApiTags('ACL')
     @ApiOperation({ summary: 'Revoke Permissions from Role' })  
     @ApiBody({ type:[GrantRevokeDto]})  
     @ApiResponse({ status: 200, description: 'Permissions revoked from Role successfully' })

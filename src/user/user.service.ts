@@ -18,7 +18,7 @@ export class UserService {
     ) { }
 
     async findOne(options?: object): Promise<UserDto> {
-        const user = await this.userRepo.findOne(options);
+        const user = await this.userRepo.findOne(options);        
         return toUserDto(user);
     }
 
@@ -87,7 +87,7 @@ export class UserService {
         return toUserDto(user);
     }
 
-
+    // ## ACL 
     async assignRole(id: string, role_id: string): Promise<object> {
 
         // Check if User exists in the DB
@@ -120,7 +120,6 @@ export class UserService {
 
         return toUserDto(userData);
     }
-
 
     async revokeRole(id: string, role_id: string): Promise<object> {
 
@@ -161,8 +160,5 @@ export class UserService {
 
         return toUserDto(userData);
     }
-
-
-
 
 }

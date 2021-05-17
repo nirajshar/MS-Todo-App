@@ -3,7 +3,7 @@ import { ApiBody, ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { GrantRevokeRoleDto } from './dto/grantRevokeRoleDto.dto';
 import { UserService } from './user.service';
 
-@ApiTags('User')
+@ApiTags('ACL')
 @Controller('user')
 export class UserController {
 

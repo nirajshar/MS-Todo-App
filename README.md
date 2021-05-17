@@ -10,7 +10,7 @@ User microservice for user having
 
 ## Rest endpoints (JSON)
 
-1 : User 
+  1 : User 
 
     - [ POST ] Create User (secure sign up from Super-Admin)
     - [ GET ] Get All Users
@@ -67,4 +67,4 @@ $ npm run start:prod
 
 ## Stay in touch
 
-- Author - [Niraj Sharma](https://github.com/nirajshar67)
+- Author - [Niraj Sharma](https://github.com/nirajshar)

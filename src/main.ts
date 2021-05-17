@@ -11,11 +11,12 @@ async function bootstrap() {
   const config = new DocumentBuilder()
     .setTitle('User-Service')
     .setDescription('User Service : Stores & Handle User Authentication / Authorization & ACL')
-    .setVersion('1.0')    
+    .setVersion('1.0')   
+    .addBearerAuth()
     .build();
 
   const document = SwaggerModule.createDocument(app, config);
-  SwaggerModule.setup('api', app, document,{
+  SwaggerModule.setup('api-doc', app, document,{
     swaggerOptions: { defaultModelsExpandDepth: -1 },
   });
 

@@ -18,7 +18,7 @@ import { ConfigService } from '@nestjs/config';
         JwtModule.register({
             secret: process.env.SECRET_KEY || 'ABCD',
             signOptions: {
-                expiresIn: process.env.EXPIRES_IN || '60s'
+                expiresIn: process.env.EXPIRES_IN || '1h'
             }
         })
     ],

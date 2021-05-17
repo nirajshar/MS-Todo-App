@@ -4,7 +4,7 @@ import { RolesEntity } from "src/roles/entity/roles.entity";
 
 @Entity('users')
 export class UserEntity {
-    @PrimaryGeneratedColumn('uuid') 
+    @PrimaryGeneratedColumn('uuid')
     id: string;
 
     @Column({
@@ -23,18 +23,18 @@ export class UserEntity {
 
     @Column({
         type: 'varchar',
-        nullable: false        
+        nullable: false
     })
     password: string;
 
     @CreateDateColumn() createdAt?: Date;
     @CreateDateColumn() updatedAt?: Date;
 
-    @ManyToOne(type=> RolesEntity, role => role.id)
-    @JoinColumn({name: 'role_id'})
+    @ManyToOne(type => RolesEntity, role => role.id)
+    @JoinColumn({ name: 'role_id' })
     role: RolesEntity;
 
-    @BeforeInsert() async hashPassword() {        
+    @BeforeInsert() async hashPassword() {
         this.password = await bcrypt.hash(this.password, 10)
     }
 }

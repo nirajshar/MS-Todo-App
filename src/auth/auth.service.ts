@@ -61,7 +61,7 @@ export class AuthService {
     }
 
     async getUserDetails(req: any): Promise<object> {
-        
+
         const { username } = req.user;
 
         const user = await this.userService.findOne({ username });
@@ -79,9 +79,13 @@ export class AuthService {
 
     private _createToken({ username, role }: UserDto): any {
 
-        const expiresIn = process.env.EXPIRES_IN || '60s';
+        const expiresIn = process.env.EXPIRES_IN || '1h';
 
-        const user: JwtPayload = { username, role_id: role.id };
+        const user: JwtPayload = { username };
+
+        if (role !== null) {
+            user.role_id = role.id;
+        }
 
         const accessToken = this.jwtService.sign(user);
 
@@ -89,5 +93,26 @@ export class AuthService {
             expiresIn,
             accessToken
         }
+    }
+
+    async getAuthUser(req: any): Promise<object> {
+
+        const { username } = req.user;
+
+        let user = await this.userService.findOne({ where: { username }, relations: ['role'] });
+
+        if (!user) {
+            throw new HttpException({
+                status: HttpStatus.UNAUTHORIZED,
+                error: 'Invalid Token'
+            }, HttpStatus.UNAUTHORIZED)
+        }
+
+        if(user.role !== null) {
+            user.role_id = user.role.id;
+            delete user.role;
+        }
+        
+        return user;
     }
 }
