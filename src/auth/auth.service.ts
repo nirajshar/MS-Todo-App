@@ -113,6 +113,9 @@ export class AuthService {
             delete user.role;
         }
         
-        return user;
+        return {
+            statusCode: 200,
+            userDetails: user
+        };
     }
 }
